@@ -11,11 +11,12 @@
         - Problem & Solution: Summarized text from Feasibility (Delamination, Skydio X10). Goal: Inform.
         - Technology Focus: Summarized text, HTML Table for Skydio X10 Specs (Table 1). Goal: Inform.
         - Comparative Analysis: HTML Table for Comparison of Methods (Table 2). Goal: Compare.
-        - The Project Plan: Interactive HTML sections for Research Plan phases/tasks (JS show/hide), Chart.js Bar Chart for man-hours (Table 6). Goal: Organize, Inform. Interaction: Click to expand, chart tooltips.
+        - The Project Plan: Interactive HTML sections for Research Plan phases/tasks (JS show/hide). Goal: Organize, Inform. Interaction: Click to expand. Man-hour chart removed.
         - SOP Blueprint: Styled HTML list/tree for SOP Outline (JS expand/collapse). Goal: Organize.
         - Operational Considerations: Summarized text, HTML Tables for Environmental Thresholds (Table 3) and Risk Assessment (Table 7). Goal: Inform.
         - Data & Reporting: HTML Tables for Data Processing Workflow (Table 5) and Validation Report Structure (Table 9), summarized text. Goal: Inform, Organize.
         - Benefits & Next Steps: Summarized text (bullet points) from Conclusion & Benefits. Goal: Inform.
+        - Citations: HTML ordered list of key references. Goal: Inform.
         - All textual content is summarized. Headings and clear typography used.
     -->
     <style>
@@ -46,26 +47,16 @@
         table { width: 100%; border-collapse: collapse; }
         th, td { border: 1px solid #e2e8f0; padding: 0.5rem; text-align: left; }
         th { background-color: #f1f5f9; }
-        .chart-container {
-            position: relative;
-            width: 100%;
-            max-width: 800px; /* Adjusted max-width for better chart readability */
-            margin-left: auto;
-            margin-right: auto;
-            height: 400px; /* Base height */
-            max-height: 500px; /* Max height */
-        }
-        @media (min-width: 768px) {
-            .chart-container { height: 450px; }
-        }
+        /* Chart container style removed as chart is removed */
         .bg-caltrans-blue { background-color: #005596; }
         .text-caltrans-blue { color: #005596; }
         .border-caltrans-blue { border-color: #005596; }
         .hover-bg-caltrans-blue-dark:hover { background-color: #003965; }
-        .bg-warm-neutral-100 { background-color: #fdfbf7; } /* Light beige/off-white */
-        .bg-warm-neutral-200 { background-color: #f4f1eb; } /* Slightly darker beige for section backgrounds */
-        .text-warm-neutral-800 { color: #4a4a4a; } /* Darker neutral for text */
-        .text-warm-neutral-600 { color: #707070; } /* Warm gray for secondary text */
+        .bg-warm-neutral-100 { background-color: #fdfbf7; } 
+        .bg-warm-neutral-200 { background-color: #f4f1eb; } 
+        .text-warm-neutral-800 { color: #4a4a4a; } 
+        .text-warm-neutral-600 { color: #707070; } 
+        .citation-list li { margin-bottom: 0.75rem; line-height: 1.6; }
     </style>
 </head>
 <body class="bg-warm-neutral-100 text-warm-neutral-800">
@@ -74,7 +65,7 @@
         <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
             <h1 class="text-xl md:text-2xl font-bold">Caltrans Drone Delamination SOP Explorer</h1>
             <nav id="mainNav" class="mt-2 md:mt-0 flex flex-wrap justify-center">
-                </nav>
+            </nav>
         </div>
     </header>
 
@@ -113,7 +104,7 @@
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
-                        </tbody>
+                    </tbody>
                 </table>
             </div>
              <p class="mt-4 text-sm text-warm-neutral-600">The combination of autonomous flight for safety and precision, a sensitive radiometric thermal sensor for detecting subtle temperature differences, and high-resolution RGB cameras for verification makes the Skydio X10 system highly suitable for this application.</p>
@@ -135,7 +126,7 @@
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
-                        </tbody>
+                    </tbody>
                 </table>
             </div>
             <p class="mt-4 text-sm text-warm-neutral-600">Drone IRT excels in safety, speed, and accessibility while providing objective, georeferenced data. However, it is environmentally dependent and requires skilled data processing and interpretation.</p>
@@ -143,18 +134,10 @@
 
         <section id="project-plan" class="content-section bg-warm-neutral-200 p-6 rounded-lg shadow">
             <h2 class="text-2xl font-semibold mb-4 text-caltrans-blue">The Project Plan: SOP Development & Validation</h2>
-            <p class="mb-4">A systematic four-phase research and validation plan is proposed to develop a robust Standard Operating Procedure (SOP) for Caltrans. This plan ensures the methodology is thoroughly tested and documented before full-scale implementation.</p>
+            <p class="mb-4">A systematic four-phase research and validation plan is proposed to develop a robust Standard Operating Procedure (SOP) for Caltrans. This plan ensures the methodology is thoroughly tested and documented before full-scale implementation. The projected timeline for completion is 6-9 months.</p>
             
-            <div class="mb-6">
-                <h3 class="text-xl font-medium mb-2">Man-Hour Estimates per Phase</h3>
-                <div class="chart-container">
-                    <canvas id="manHourChart"></canvas>
-                </div>
-                <p class="text-center mt-2 text-sm text-warm-neutral-600">Total Estimated Man-Hours: 460 - 670. Projected Timeline: 6-9 months.</p>
+            <div id="researchPhases" class="space-y-4 mt-6">
             </div>
-
-            <div id="researchPhases" class="space-y-4">
-                </div>
              <p class="mt-6 text-sm text-warm-neutral-600">This structured approach, from foundational research to field validation and final documentation, aims to deliver a reliable and practical SOP tailored to Caltrans' needs.</p>
         </section>
 
@@ -162,7 +145,7 @@
             <h2 class="text-2xl font-semibold mb-4 text-caltrans-blue">SOP Blueprint: High-Level Outline</h2>
             <p class="mb-4">The final Standard Operating Procedure will be a comprehensive document guiding Caltrans drone operators. Below is a high-level outline of its proposed sections. Click on a main section to see its sub-topics.</p>
             <div id="sopOutlineContainer" class="space-y-2">
-                </div>
+            </div>
             <p class="mt-4 text-sm text-warm-neutral-600">A critical aspect will be detailed guidance on interpreting thermal signatures and differentiating true delaminations from false positives using RGB-Thermal data fusion, supported by examples and decision trees.</p>
         </section>
 
@@ -182,7 +165,7 @@
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
-                        </tbody>
+                    </tbody>
                 </table>
             </div>
 
@@ -199,7 +182,7 @@
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
-                        </tbody>
+                    </tbody>
                 </table>
             </div>
             
@@ -214,7 +197,7 @@
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
-                        </tbody>
+                    </tbody>
                 </table>
             </div>
             <p class="mt-4 text-sm text-warm-neutral-600">The SOP will mandate adherence to FAA Part 107, Caltrans UAS Operations Handbook, and specific site safety plans, including pre-flight checklists and emergency procedures.</p>
@@ -236,7 +219,7 @@
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
-                        </tbody>
+                    </tbody>
                 </table>
             </div>
 
@@ -251,7 +234,7 @@
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
-                        </tbody>
+                    </tbody>
                 </table>
             </div>
             <p class="mt-4 text-sm text-warm-neutral-600">The SOP will also specify standardized reporting templates for inspection findings and data archiving procedures for long-term asset management.</p>
@@ -280,6 +263,13 @@
             <p class="mt-4">By partnering in this initiative, Caltrans can significantly advance its bridge inspection capabilities, leading to safer, more efficient, and data-driven management of California's vital bridge infrastructure.</p>
         </section>
 
+        <section id="citations" class="content-section bg-warm-neutral-200 p-6 rounded-lg shadow">
+            <h2 class="text-2xl font-semibold mb-4 text-caltrans-blue">Citations</h2>
+            <p class="mb-4">This section lists key references and sources that inform the methodologies and technologies discussed in this proposal. These materials provide foundational knowledge and support the feasibility of using drone-based infrared thermography for bridge deck delamination detection.</p>
+            <ol id="citationList" class="list-decimal list-inside space-y-2 citation-list text-sm">
+            </ol>
+        </section>
+
     </main>
 
     <footer class="text-center p-4 mt-8 text-sm text-warm-neutral-600 border-t border-warm-neutral-200">
@@ -296,7 +286,8 @@
             { id: 'sop-blueprint', title: 'SOP Blueprint' },
             { id: 'operational-considerations', title: 'Operations' },
             { id: 'data-reporting', title: 'Data & Reporting' },
-            { id: 'benefits-next-steps', title: 'Benefits & Next Steps' }
+            { id: 'benefits-next-steps', title: 'Benefits & Next Steps' },
+            { id: 'citations', title: 'Citations' }
         ];
 
         const mainNav = document.getElementById('mainNav');
@@ -316,7 +307,7 @@
                     button.classList.add('active');
                 }
             });
-            window.scrollTo(0, 0); // Scroll to top of page
+            window.scrollTo(0, 0); 
         }
 
         sections.forEach(section => {
@@ -324,14 +315,13 @@
             button.textContent = section.title;
             button.dataset.sectionId = section.id;
             button.classList.add('nav-button', 'text-sm', 'md:text-base', 'bg-caltrans-blue', 'text-white', 'hover-bg-caltrans-blue-dark');
-            if (section.id === 'overview') { // Set initial active button
+            if (section.id === 'overview') { 
                 button.classList.add('active');
             }
             button.addEventListener('click', () => navigateToSection(section.id));
             mainNav.appendChild(button);
         });
         
-        // Table Data
         const techSpecsData = [
             { feature: "Drone Weight", skydio: "Approx. 2.11-2.14 kg", flir: "N/A", rgb: "N/A", relevance: "Portability, Part 107" },
             { feature: "Max Flight Time", skydio: "40 minutes", flir: "N/A", rgb: "N/A", relevance: "Sufficient endurance" },
@@ -400,10 +390,27 @@
             { section: "Appendices", content: "Sample data, calibration certs, ground truth maps, etc." }
         ];
 
+        const citationsData = [
+            "ACI 228.2R-13 (2013). \"Report on Nondestructive Test Methods for Evaluation of Concrete in Structures.\" ACI Committee 228, American Concrete Institute, Report, 83 p.",
+            "Ahlborn, T., Shuchman, R., Sutter, L., Harris, D., Brooks, C., and Burns, J. (2013). \"Bridge Condition Assessment Using Remote Sensors.\" Report, United States Department of Transportation - Research and Innovation Technology Administration, 296 p.",
+            "ASTM Standard D4788-03 (2013). \"Standard Test Method for Detecting Delaminations in Bridge Decks Using Infrared Thermography.\" ASTM International, West Conshohocken, PA. www.astm.org.",
+            "Bagavathiappan, B., Lahiri, T., Philip, J. and Jayakumar, T. (2014). \"Infrared thermography for condition monitoring - A review.\" J. of Infrared Physics and Technology. Vol. 60, pp: 35-55.",
+            "Gucunski, N., Imani, A., Romero, F., Nazarian, S., Yuan, D., Wiggenhauser, H., Shokouhi, P., Taffe, A., and Kutrubes, D. (2013). \"Non-destructive testing to identify concrete bridge deck deterioration.\" 92nd Annual Meeting, TRB, Washington, D.C. SHRP 2 Report, 96 p.",
+            "Huston, D., P. Fuhr, et al. (2002). \"Nondestructive testing of reinforced concrete bridges using radar imaging techniques.\" Final Research Report NETC, pp: 94-92.",
+            "Manning, D., and Holt, F. (1982). \"Detecting Delaminations in Concrete Bridge Decks.\" J. of Concrete International, Vol. 34, pp: 1-8.",
+            "Maser, K., and Roddis, W. (1990). \"Principles of Thermography and Radar for Bridge Deck Assessment.\" J. of Transportation Engineering. Vol. 116 (5), pp: 583-601.",
+            "Moore, M., Phares, B., Graybeal, D., and Washer, G. (2001). \"Reliability of visual inspection for highway bridges.\" Report, FHWA-RD-01-020, pp: 1-4.",
+            "Robert, M. (1982). \"Science behind Thermography-Thermal Infrared Sensing for Diagnostics and Control.\" J. of Thermosense, Vol. 371, pp: 2-9.",
+            "Vladimir, V. (2014). \"Thermal NDT: historical milestones, state-of-the-art and trends.\" J. of Quantitative Infrared Thermography. Vol. 11 (1), pp: 66-83.",
+            "Washer, G., Fenwick, R., and Nelson, S. (2013). \"Guidelines for the Thermographic Inspection of Concrete Bridge Components in Shaded Conditions.\" 92nd Annual Meeting, TRB, Washington, D.C. pp: 1-14.",
+            "Washer, G., Fenwick, R., and Harper, J. (2009). \"Effects of Environmental Variables on Infrared Imaging of Subsurface Features in Concrete Bridges.\" J. of the Transportation Research Board. Vol. 2108/2109, pp: 107-114."
+        ];
+
+
         function populateTable(tableId, data, columns) {
             const tableBody = document.getElementById(tableId).getElementsByTagName('tbody')[0];
             if (!tableBody) return;
-            tableBody.innerHTML = ''; // Clear existing rows
+            tableBody.innerHTML = ''; 
             data.forEach(rowData => {
                 const row = tableBody.insertRow();
                 columns.forEach(col => {
@@ -436,11 +443,21 @@
             { key: 'section' }, { key: 'content' }
         ]);
 
-        // Research Plan Data & Population
+        function populateCitationList(listId, data) {
+            const listElement = document.getElementById(listId);
+            if (!listElement) return;
+            listElement.innerHTML = ''; 
+            data.forEach(citationText => {
+                const listItem = document.createElement('li');
+                listItem.textContent = citationText;
+                listElement.appendChild(listItem);
+            });
+        }
+        populateCitationList('citationList', citationsData);
+
         const researchPhasesData = [
             { 
                 name: "Phase 1: Foundational Research and SOP Framework Development", 
-                hours: "80-120",
                 tasks: [
                     { id: "1.1", name: "Comprehensive Review of Caltrans' Existing Practices & Research", details: "Gather and analyze Caltrans documentation on bridge inspection, UAS guidelines, and relevant research (e.g., Task 4419) to understand current workflows, data practices, safety standards, and needs." },
                     { id: "1.2", name: "Detailed Analysis of ASTM D4788 & Adaptation for Drone Application", details: "Critically review ASTM D4788, map its clauses to Skydio X10 capabilities, and identify adaptations for drone deployment (e.g., translating vehicle speed to drone flight parameters)." },
@@ -450,7 +467,6 @@
             },
             { 
                 name: "Phase 2: Controlled Environment Testing & Parameter Optimization", 
-                hours: "120-160",
                 tasks: [
                     { id: "2.1", name: "Design and Preparation of Test Slabs with Simulated Delaminations", details: "Fabricate concrete test slabs replicating Caltrans bridge decks with artificial delaminations of known sizes, depths, and shapes to provide ground truth for sensor calibration." },
                     { id: "2.2", name: "Systematic Drone Flight Tests (Skydio X10) for Optimal Data Acquisition Parameters", details: "Conduct methodical flight tests over test slabs, varying flight altitude, speed, image overlap, sensor angles, and Skydio 3D Scan parameters to optimize data quality and coverage." },
@@ -461,7 +477,6 @@
             },
             { 
                 name: "Phase 3: Field Validation Trials on Representative Caltrans Bridges", 
-                hours: "160-240",
                 tasks: [
                     { id: "3.1", name: "Criteria for Test Bridge Selection and Coordination with Caltrans", details: "Establish criteria (type, age, condition, accessibility, traffic, geometry) for selecting 3-5 representative Caltrans bridges. Coordinate site access and safety with Caltrans." },
                     { id: "3.2", name: "Execution of Field Inspections using Refined Data Acquisition Protocols", details: "Conduct drone flights on selected bridges adhering to optimized parameters and safety protocols. Document all operational details and environmental conditions." },
@@ -472,7 +487,6 @@
             },
             { 
                 name: "Phase 4: Final SOP Development, Validation Report, and Deliverables", 
-                hours: "100-150",
                 tasks: [
                     { id: "4.1", name: "Incorporate Field Trial Findings into SOP", details: "Systematically integrate lessons learned, optimized parameters, refined processing steps, and validated analysis techniques from Phases 2 & 3 into the draft SOP." },
                     { id: "4.2", name: "Development of Detailed SOP Sections", details: "Fully elaborate all SOP sections with clear, step-by-step instructions, checklists, decision trees, Skydio X10 operational steps, data processing workflows, and report templates. Include visual aids." },
@@ -487,7 +501,7 @@
         researchPhasesData.forEach(phase => {
             const phaseDiv = document.createElement('div');
             phaseDiv.classList.add('phase-task', 'p-4', 'border', 'border-gray-300', 'rounded-md', 'bg-white', 'shadow-sm');
-            phaseDiv.innerHTML = `<h3 class="text-lg font-semibold text-caltrans-blue mb-2">${phase.name} (Est. Hours: ${phase.hours})</h3>`;
+            phaseDiv.innerHTML = `<h3 class="text-lg font-semibold text-caltrans-blue mb-2">${phase.name}</h3>`;
             
             const taskList = document.createElement('ul');
             taskList.classList.add('list-disc', 'list-inside', 'space-y-1', 'pl-4');
@@ -504,7 +518,6 @@
             researchPhasesContainer.appendChild(phaseDiv);
         });
 
-        // SOP Outline Data & Population
         const sopOutlineData = [
             { title: "1.0 Introduction", subs: ["1.1 Purpose", "1.2 Scope", "1.3 Definitions", "1.4 Applicable Documents"] },
             { title: "2.0 Roles and Responsibilities", subs: ["2.1 Remote Pilot in Command (RPIC)", "2.2 Visual Observer (VO)", "2.3 Data Analyst / NDT IRT Specialist", "2.4 Caltrans Bridge Engineer / Inspector (SME)"] },
@@ -540,66 +553,9 @@
             sectionDiv.appendChild(subList);
             sopOutlineContainer.appendChild(sectionDiv);
         });
-
-        // Man-Hour Chart
-        const manHourCtx = document.getElementById('manHourChart').getContext('2d');
-        const manHourChart = new Chart(manHourCtx, {
-            type: 'bar',
-            data: {
-                labels: researchPhasesData.map(p => p.name.split(':')[0]), // Just "Phase X"
-                datasets: [{
-                    label: 'Min Estimated Man-Hours',
-                    data: researchPhasesData.map(p => parseInt(p.hours.split('-')[0])),
-                    backgroundColor: 'rgba(0, 85, 150, 0.6)', // Caltrans Blue with alpha
-                    borderColor: 'rgba(0, 85, 150, 1)',
-                    borderWidth: 1
-                }, {
-                    label: 'Max Estimated Man-Hours',
-                    data: researchPhasesData.map(p => parseInt(p.hours.split('-')[1])),
-                    backgroundColor: 'rgba(135, 206, 250, 0.6)', // Lighter blue with alpha
-                    borderColor: 'rgba(135, 206, 250, 1)',
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        title: { display: true, text: 'Man-Hours' }
-                    },
-                    x: {
-                        ticks: {
-                            maxRotation: 0, // Prevent label rotation
-                            minRotation: 0,
-                            autoSkip: false, // Show all labels
-                             callback: function(value, index, values) { // Custom label wrapping
-                                const label = this.getLabelForValue(value);
-                                if (label.length > 10) { // Max length before trying to split
-                                    const words = label.split(' ');
-                                    if (words.length > 1) return [words.slice(0, words.length/2).join(' '), words.slice(words.length/2).join(' ')];
-                                    return label.substring(0,10) + '...';
-                                }
-                                return label;
-                            }
-                        }
-                    }
-                },
-                plugins: {
-                    legend: { position: 'top' },
-                    tooltip: {
-                        callbacks: {
-                            label: function(context) {
-                                return `${context.dataset.label}: ${context.raw} hours`;
-                            }
-                        }
-                    }
-                }
-            }
-        });
         
-        // Initialize first section
+        // ManHourChart related code is removed.
+        
         navigateToSection('overview');
 
     </script>
